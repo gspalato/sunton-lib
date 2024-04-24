@@ -213,9 +213,9 @@ void smartdisplay_init()
   // Create drawBuffer
   disp_drv.draw_buf = (lv_disp_draw_buf_t *)malloc(sizeof(lv_disp_draw_buf_t));
 
-  void *drawBuffer = heap_caps_malloc(sizeof(lv_color_t) * LVGL_BUFFER_PIXELS / 20, LVGL_BUFFER_MALLOC_FLAGS);
+  void *drawBuffer = heap_caps_malloc(sizeof(lv_color_t) * LVGL_BUFFER_PIXELS * 4, LVGL_BUFFER_MALLOC_FLAGS);
 
-  lv_disp_draw_buf_init(disp_drv.draw_buf, drawBuffer, NULL, LVGL_BUFFER_PIXELS / 20);
+  lv_disp_draw_buf_init(disp_drv.draw_buf, drawBuffer, NULL, LVGL_BUFFER_PIXELS * 4);
 
   // Register callback for changes to the driver parameters (rotation!)
   disp_drv.drv_update_cb = lvgl_update_callback;
